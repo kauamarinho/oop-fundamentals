@@ -1,12 +1,11 @@
 from typing import Literal
-
-from .veiculo import Veiculo
+from .Vehicle import Vehicle
 
 TipoMoto = Literal["Esportiva", "Casual"]
 TIPOS_VALIDOS = ("Esportiva", "Casual")
 
 
-class Moto(Veiculo):
+class Moto(Vehicle):
     def __init__(self, marca: str, modelo: str, tipo: TipoMoto):
         super().__init__(marca, modelo)
 

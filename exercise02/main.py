@@ -1,11 +1,11 @@
-from carro import Carro
+from car import Car
 
-carros = [
-    Carro("Toyota", "Corolla", "Prata"),
-    Carro("Honda",  "Civic",   "Preto"),
-    Carro("Ford",   "Mustang", "Vermelho"),
+cars = [
+    Car("Toyota", "Corolla", "Silver"),
+    Car("Honda",  "Civic",   "Black"),
+    Car("Ford",   "Mustang", "Red"),
 ]
 
 if __name__ == "__main__":
-    for carro in carros:
-        print(carro.ligar())
+    for car in cars:
+        print(car.start())

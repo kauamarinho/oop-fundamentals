@@ -1,55 +1,55 @@
-from veiculos import Carro, Moto
+from vehicles  import Car, Motorcycle
 
-# Instâncias
-carros = [
-    Carro("Toyota",     "Corolla",  4),
-    Carro("Volkswagen", "Gol",      2),
-    Carro("Ford",       "Mustang",  2),
+# Instances
+cars = [
+    Car("Toyota",     "Corolla",  4),
+    Car("Volkswagen", "Gol",      2),
+    Car("Ford",       "Mustang",  2),
 ]
 
-motos = [
-    Moto("Honda",    "CB 500F",       "Esportiva"),
-    Moto("Yamaha",   "NMAX",          "Casual"),
-    Moto("Kawasaki", "Ninja ZX-10R",  "Esportiva"),
+motorcycles = [
+    Motorcycle("Honda",    "CB 500F",      "Sport"),
+    Motorcycle("Yamaha",   "NMAX",         "Casual"),
+    Motorcycle("Kawasaki", "Ninja ZX-10R", "Sport"),
 ]
 
-# __str__: exibição amigável
+# __str__: user-friendly display
 print("=" * 55)
-print("  __str__  —  exibição amigável")
+print("  __str__  —  user-friendly display")
 print("=" * 55)
 
-print("\n--- Carros ---")
-for carro in carros:
-    print(carro)
+print("\n--- Cars ---")
+for car in cars:
+    print(car)
 
-print("\n--- Motos ---")
-for moto in motos:
-    print(moto)
+print("\n--- Motorcycles ---")
+for motorcycle in motorcycles:
+    print(motorcycle)
 
-# __repr__: útil para debug
+# __repr__: useful for debugging
 print("\n" + "=" * 55)
-print("  __repr__  —  representação para debug")
+print("  __repr__  —  debug representation")
 print("=" * 55)
 
 print()
-for veiculo in carros + motos:
-    print(repr(veiculo))
+for vehicle in cars + motorcycles:
+    print(repr(vehicle))
 
-# Validações — entradas inválidas
+# Validations — invalid inputs
 print("\n" + "=" * 55)
-print("  Validações — entradas inválidas")
+print("  Validations — invalid inputs")
 print("=" * 55)
 
-casos = [
-    ("Carro com marca vazia",         lambda: Carro("",       "Gol",    4)),
-    ("Carro com portas inválidas (3)", lambda: Carro("VW",    "Gol",    3)),
-    ("Carro com portas negativas",     lambda: Carro("VW",    "Gol",   -1)),
-    ("Moto com tipo inválido",         lambda: Moto("Honda",  "CB",  "Trial")),
+cases = [
+    ("Car with empty brand",           lambda: Car("",      "Gol",  4)),
+    ("Car with invalid doors (3)",     lambda: Car("VW",   "Gol",  3)),
+    ("Car with negative doors",        lambda: Car("VW",   "Gol", -1)),
+    ("Motorcycle with invalid type",   lambda: Motorcycle("Honda", "CB", "Trial")),
 ]
 
-for descricao, caso in casos:
+for description, case in cases:
     try:
-        caso()
+        case()
     except (ValueError, TypeError) as e:
-        print(f"\n  [{descricao}]")
+        print(f"\n  [{description}]")
         print(f"  ValueError: {e}")
